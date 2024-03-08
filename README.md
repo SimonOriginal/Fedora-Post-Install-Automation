@@ -39,4 +39,4 @@ After running the script, all necessary system preparation actions will be perfo
 
 ### License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
