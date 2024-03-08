@@ -30,8 +30,10 @@ check_sudo
 # Function to handle errors
 handle_error() {
     echo -e "${RED}Ошибка: $1${NC}"
-    exit 1
+    # Skip the error and continue executing the script
+    return 0
 }
+
 
 # Function to check for updates
 check_for_updates() {
