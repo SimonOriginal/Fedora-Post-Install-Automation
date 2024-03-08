@@ -24,13 +24,13 @@ wget https://raw.githubusercontent.com/SimonOriginal/Fedora-Post-Install-Automat
 Make the script executable:
 
 ```bash
-chmod +x fedora-setup.sh
+chmod +x fedora-ultimate-toolkit.sh
 ```
 
 Run the script with superuser privileges:
 
 ```bash
-sudo ./fedora-setup.sh
+sudo ./fedora-ultimate-toolkit.sh
 ```
 
 ### Usage
