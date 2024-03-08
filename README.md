@@ -32,3 +32,11 @@ Run the script with superuser privileges:
 ```bash
 sudo ./fedora-setup.sh
 ```
+
+### Usage
+
+After running the script, all necessary system preparation actions will be performed. During the installation of applications, you will be prompted to choose the programs to install by entering their numbers separated by spaces. Enter 0 to continue without installing any programs.
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
