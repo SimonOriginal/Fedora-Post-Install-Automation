@@ -12,34 +12,39 @@ This bash script automates the setup of the Fedora system for gaming and work by
 5. Installing GNOME Tweaks and the extension management application.
 6. Enabling "Minimize" or "Maximize" buttons.
 7. Installing necessary applications such as Heroic Games Launcher, Steam, Discord, Telegram, and others.
+8. Installing GNOME extensions (optional) - The user will be prompted to choose the extensions to install by entering their numbers separated by spaces. Enter 0 to continue without installing any extensions.
+
+**Localization:** The script supports English and Ukrainian languages. The default language is English.
 
 ### Installation
 
 **Option 1: Install directly via curl and bash**
 
-   ```bash
-   curl -sSL https://github.com/SimonOriginal/Fedora-Post-Install-Automation/raw/main/fedora-ultimate-toolkit.sh | bash
-   ```
+```bash
+curl -sSL https://github.com/SimonOriginal/Fedora-Post-Install-Automation/raw/main/fedora-ultimate-toolkit.sh | bash
+```
 **Option 2: Download and run the script manually**
 
 1. Download the script:
-   ```bash
-   wget https://raw.githubusercontent.com/SimonOriginal/Fedora-Post-Install-Automation/main/fedora-ultimate-toolkit.sh
-   ```
+```bash
+wget https://raw.githubusercontent.com/SimonOriginal/Fedora-Post-Install-Automation/main/fedora-ultimate-toolkit.sh
+```
 
 2. Make the script executable:
-   ```bash
-   chmod +x fedora-ultimate-toolkit.sh
-   ```
+```bash
+chmod +x fedora-ultimate-toolkit.sh
+```
 
 3. Run the script with superuser privileges:
-   ```bash
-   sudo ./fedora-ultimate-toolkit.sh
-   ```
+```bash
+sudo ./fedora-ultimate-toolkit.sh
+```
 
 ### Usage
 
-After running the script, all necessary system preparation actions will be performed. During the installation of applications, you will be prompted to choose the programs to install by entering their numbers separated by spaces. Enter 0 to continue without installing any programs.
+After running the script, all necessary system preparation actions will be performed. During the installation of applications and extensions, you will be prompted to choose the programs and extensions to install by entering their numbers separated by spaces. Enter 0 to continue without installing any programs or extensions.
+
+**To change the language**, modify the `LANGUAGE` variable at the beginning of the script to either "en" for English or "uk" for Ukrainian.
 
 ### License
 
