@@ -258,6 +258,8 @@ available_extensions=(
     "dash-to-dock@micxgx.gmail.com"
     "appindicator-support@rgcjonas.gmail.com"
     "vitals@corecoding.com"
+    "caffeine@patapon.info"
+    "user-themes@gnome-shell-extensions.gcampax.github.com"
 )
 
 selected_extensions=()
@@ -287,3 +289,4 @@ for extension in "${selected_extensions[@]}"; do
 done
 
 echo -e "${GREEN}$(translate "extensions_installed_updated")${NC}"
+
