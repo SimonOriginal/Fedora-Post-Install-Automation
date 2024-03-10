@@ -140,3 +140,23 @@ for program in "${selected_programs[@]}"; do
 done
 
 echo -e "${GREEN}Установка и обновление программ завершены.${NC}"
+
+# Step 9: Install GNOME extensions
+echo -e "${YELLOW}Installing GNOME extensions...${NC}"
+
+# List of GNOME extensions to install
+extensions=(
+    "blur-my-shell@aunetx.github"
+    "dash-to-dock@micxgx.gmail.com"
+    "appindicator-support@rgcjonas.gmail.com"
+    "vitals@corecoding.com"
+)
+
+# Loop through the list of extensions and install them
+for extension in "${extensions[@]}"; do
+    if ! gnome-extensions list | grep -q "$extension"; then
+        gnome-extensions install "$extension" || handle_error "Не удалось установить расширение $extension."
+    else
+        echo -e "${GREEN}Расширение $extension уже установлено.${NC}"
+    fi
+done
