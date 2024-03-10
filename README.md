@@ -21,7 +21,7 @@ This bash script automates the setup of the Fedora system for gaming and work by
 **Option 1: Install directly via curl and bash**
 
 ```bash
-curl -sSL https://github.com/SimonOriginal/Fedora-Post-Install-Automation/raw/main/fedora-ultimate-toolkit.sh | bash
+sudo bash -c "$(curl -sSL https://github.com/SimonOriginal/Fedora-Post-Install-Automation/raw/main/fedora-ultimate-toolkit.sh)"
 ```
 **Option 2: Download and run the script manually**
 
