@@ -62,6 +62,11 @@ TRANSLATIONS_EN=(
     ["app_already_installed"]="Application already installed."
     ["installing_gnome_extensions"]="Installing GNOME extensions..."
     ["gnome_extension_already_installed"]="GNOME extension already installed."
+    ["select_extensions_to_install"]="Виберіть розширення GNOME для встановлення (введіть номери через пробіл):"
+    ["continue_without_extensions"]="Введіть 0, щоб продовжити без встановлення розширень."
+    ["extension_numbers"]="Номери розширень: "
+    ["invalid_extension_number"]="Невірний номер розширення: "
+    ["extensions_installed_updated"]="Розширення GNOME встановлені та оновлені."
 )
 
 ERROR_TRANSLATIONS_UK=(
@@ -88,6 +93,11 @@ ERROR_TRANSLATIONS_EN=(
     ["cannot_set_minimize_maximize"]="Cannot set 'Minimize' or 'Maximize' buttons."
     ["cannot_install_flatpak_package"]="Cannot install Flatpak package."
     ["cannot_install_gnome_extension"]="Cannot install GNOME extension."
+    ["select_extensions_to_install"]="Select GNOME extensions to install (enter numbers separated by space):"
+    ["continue_without_extensions"]="Enter 0 to continue without installing extensions."
+    ["extension_numbers"]="Extension numbers: "
+    ["invalid_extension_number"]="Invalid extension number: "
+    ["extensions_installed_updated"]="GNOME extensions installed and updated."
 )
 
 # Function to get the translated string
@@ -243,18 +253,37 @@ echo -e "${GREEN}$(translate "apps_installed_updated")${NC}"
 echo -e "${YELLOW}$(translate "installing_gnome_extensions")${NC}"
 
 # List of GNOME extensions to install
-extensions=(
+available_extensions=(
     "blur-my-shell@aunetx.github"
     "dash-to-dock@micxgx.gmail.com"
     "appindicator-support@rgcjonas.gmail.com"
     "vitals@corecoding.com"
 )
 
-# Loop through the list of extensions and install them
-for extension in "${extensions[@]}"; do
+selected_extensions=()
+echo -e "${YELLOW}$(translate "select_extensions_to_install")${NC}"
+for i in "${!available_extensions[@]}"; do
+    echo "$((i+1)). ${available_extensions[$i]}"
+done
+echo "$(translate "continue_without_extensions")"
+read -r -p "$(translate "extension_numbers")" -a selected_indices
+for index in "${selected_indices[@]}"; do
+    if ((index == 0)); then
+        break
+    elif ((index > 0 && index <= ${#available_extensions[@]})); then
+        selected_extensions+=("${available_extensions[$((index-1))]}")
+    else
+        echo -e "${RED}$(translate "invalid_extension_number")$index${NC}"
+    fi
+done
+
+# Loop through the list of selected extensions and install them
+for extension in "${selected_extensions[@]}"; do
     if ! gnome-extensions list | grep -q "$extension"; then
         gnome-extensions install "$extension" || handle_error "cannot_install_gnome_extension"
     else
         echo -e "${GREEN}$(translate "gnome_extension_already_installed") $extension${NC}"
     fi
 done
+
+echo -e "${GREEN}$(translate "extensions_installed_updated")${NC}"
