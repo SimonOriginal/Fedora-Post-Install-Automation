@@ -12,7 +12,6 @@ This bash script automates the setup of the Fedora system for gaming and work by
 5. Installing GNOME Tweaks and the extension management application.
 6. Enabling "Minimize" or "Maximize" buttons.
 7. Installing necessary applications such as Heroic Games Launcher, Steam, Discord, Telegram, and others.
-8. Installing GNOME extensions (optional) - The user will be prompted to choose the extensions to install by entering their numbers separated by spaces. Enter 0 to continue without installing any extensions.
 
 **Localization:** The script supports English and Ukrainian languages. The default language is English.
 
